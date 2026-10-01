@@ -1,28 +1,39 @@
-<div align="center">
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-night.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/hero-day.svg">
+    <img src="assets/hero-day.svg" width="100%" alt="Hello, World — BanCN, Java backend developer. Building practical tools, learning in public. 写干净的代码 · 造可靠的系统">
+  </picture>
+</p>
 
-<img src="banner.svg" alt="BanCN banner" width="880" />
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/about-night.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/about-day.svg">
+    <img src="assets/about-day.svg" width="100%" alt="壹 · About — public final class BanCN implements Developer: role Java Backend Developer; craft clean code, reliable systems; stack Java, Python, MySQL; every day build(practicalTools()) and learnInPublic(); toString() returns &quot;Fake Null&quot;.">
+  </picture>
+</p>
 
-<br />
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/toolkit-night.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/toolkit-day.svg">
+    <img src="assets/toolkit-day.svg" width="100%" alt="贰 · Toolkit — 工欲善其事，必先利其器。Java, Python, MySQL, Git, VS Code.">
+  </picture>
+</p>
 
-Java backend developer, focused on clean code and reliable systems.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/constellation-night.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/constellation-day.svg">
+    <img src="assets/constellation-day.svg" width="100%" alt="叁 · Constellation — a year of GitHub contributions drawn as a star chart, redrawn every day.">
+  </picture>
+</p>
 
-<br />
-
-<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=openjdk&logoColor=white" alt="Java" />
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL" />
-<img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git" />
-<img src="https://img.shields.io/badge/VS%20Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code" />
-
-<br /><br />
-
-<img src="https://github-readme-stats.vercel.app/api?username=BanCN-Re&show_icons=true&theme=transparent&hide_border=true&title_color=1f2328&text_color=57606a&icon_color=1f2328" alt="GitHub stats" height="170" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=BanCN-Re&layout=compact&theme=transparent&hide_border=true&title_color=1f2328&text_color=57606a" alt="Top languages" height="170" />
-
-<br /><br />
-
-*Want to collaborate or just say hi? Let's connect.*
-
-<img src="https://img.shields.io/badge/BanCN--Re-1f2328?style=flat&logo=github&logoColor=white" alt="GitHub" />
-
-</div>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/colophon-night.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/colophon-day.svg">
+    <img src="assets/colophon-day.svg" width="100%" alt="山高水长，后会有期 — Thank you for stopping by, until we meet again.">
+  </picture>
+</p>
