@@ -1,45 +1,30 @@
-# Profile plates
+# README images
 
-The profile README is five SVG "plates", each drawn twice: **day** (xuan paper,
-ink and gold leaf) for GitHub's light theme and **night** (midnight sky, ivory
-and gold) for the dark theme. The README picks one with `<picture>` and
-`prefers-color-scheme`.
+The profile README is mostly plain Markdown. Two small images sit in it, each
+drawn for GitHub's light and dark themes (picked with `<picture>`), with
+transparent backgrounds and GitHub's own Primer colours:
 
-| Plate | File | What it shows |
-| --- | --- | --- |
-| Frontispiece | `assets/hero-*.svg` | Greeting, name, astrolabe, mountains, the 大道至简 seal |
-| 壹 About | `assets/about-*.svg` | A Java class typed out line by line, between a hanging couplet |
-| 贰 Toolkit | `assets/toolkit-*.svg` | The Analects on tools, struck-gold medallions |
-| 叁 Constellation | `assets/constellation-*.svg` | A year of contributions as a star chart, redrawn daily |
-| 跋 Colophon | `assets/colophon-*.svg` | Farewell in running script, name seal, sea-and-cliff hem |
+- `assets/header-*.svg`: name, role, and a terminal line that types a few phrases in turn
+- `assets/stack-*.svg`: the everyday tools as outlined chips
 
-All lettering is converted to outlines, because GitHub serves README images as
-sandboxed SVG that may not load web fonts. The animations are plain CSS/SMIL
-and settle on the finished plate; a `prefers-reduced-motion` rule skips
-straight to that final frame.
+Text is converted to outlines because GitHub serves README images as sandboxed
+SVG that cannot load web fonts.
 
 ## Rebuilding
 
 ```sh
 pip install -r scripts/requirements.txt
-python scripts/build.py                  # every plate
-python scripts/build.py hero about       # just some
-python scripts/build.py constellation --fetch   # refresh the star chart (needs GITHUB_TOKEN)
+python scripts/build.py
 ```
 
-Copy lives in `scripts/art/content.py`. If an edit introduces characters the
-bundled font subsets lack, the build says so; run `python scripts/make_fonts.py`
-to re-cut them from Google Fonts.
-
-`.github/workflows/constellation.yml` redraws the star chart every day and
-commits it when it changes. The workflow has to be on the default branch for
-the schedule to run.
+Words live in `scripts/art/content.py`. If an edit adds characters the bundled
+font subsets lack, the build says so; run `python scripts/make_fonts.py` to
+re-cut them from Google Fonts.
 
 ## Credits
 
 - Typefaces (SIL Open Font License 1.1, see `scripts/fonts/OFL-*.txt`):
-  Cinzel, Cormorant Garamond, JetBrains Mono, Noto Serif SC, Ma Shan Zheng,
-  Zhi Mang Xing.
+  Inter, JetBrains Mono, Noto Sans SC.
 - Brand marks: [Simple Icons](https://simpleicons.org) (CC0) and
   [devicon](https://github.com/devicons/devicon) (MIT). The marks remain
   trademarks of their owners.
