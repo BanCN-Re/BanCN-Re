@@ -1,47 +1,39 @@
-"""Render the profile README plates into assets/.
+"""Render the README images into assets/, one per GitHub theme.
 
-    python scripts/build.py                 # every plate, both themes
-    python scripts/build.py hero about      # selected plates
+    python scripts/build.py               # everything
+    python scripts/build.py header        # just one
 """
 
 from __future__ import annotations
 
 import argparse
 import importlib
-import json
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from art import content  # noqa: E402
-from art.contributions import load  # noqa: E402
 from art.theme import THEMES  # noqa: E402
 
-PLATES = ["hero", "about", "toolkit", "constellation", "colophon"]
+PARTS = ["header", "stack"]
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("plates", nargs="*", metavar="plate", help=f"any of: {', '.join(PLATES)}")
+    ap.add_argument("parts", nargs="*", metavar="part", help=f"any of: {', '.join(PARTS)}")
     ap.add_argument("--out", type=Path, default=ROOT / "assets")
-    ap.add_argument("--fetch", action="store_true", help="refresh the contribution calendar (needs GITHUB_TOKEN)")
-    ap.add_argument("--data", type=Path, help="render the constellation from this calendar JSON instead")
     args = ap.parse_args()
-    args.out.mkdir(exist_ok=True)
-    unknown = set(args.plates) - set(PLATES)
+    unknown = set(args.parts) - set(PARTS)
     if unknown:
-        ap.error(f"unknown plate(s): {', '.join(sorted(unknown))}")
-    for name in args.plates or PLATES:
+        ap.error(f"unknown part(s): {', '.join(sorted(unknown))}")
+    args.out.mkdir(exist_ok=True)
+    for name in args.parts or PARTS:
         module = importlib.import_module(f"art.plates.{name}")
-        extra = []
-        if getattr(module, "NEEDS_DATA", False):
-            extra = [json.loads(args.data.read_text()) if args.data else load(content.LOGIN, refresh=args.fetch)]
         for t in THEMES:
             path = args.out / f"{name}-{t.name}.svg"
-            path.write_text(module.build(t, *extra), encoding="utf-8")
-            print(f"{path}  {path.stat().st_size / 1024:6.1f} KiB")
+            path.write_text(module.build(t), encoding="utf-8")
+            print(f"{path}  {path.stat().st_size / 1024:5.1f} KiB")
 
 
 if __name__ == "__main__":
